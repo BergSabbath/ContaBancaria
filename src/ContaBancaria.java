@@ -5,7 +5,6 @@ public class ContaBancaria {
         """
         *************************
         Dados iniciais do cliente:
-        
         Nome: Terry Bogard
         Tipo de conta: Corrente
         Saldo inicial: R$ 2500,00
@@ -14,14 +13,14 @@ public class ContaBancaria {
         );
         Scanner entrada = new Scanner(System.in);
         double saldo = 2500.00;
-        double valor = 0.00;
+        double valor;
         int operacao = 0;
 
         while (operacao != 4){
             System.out.println(
             """
-            ---------------------------------------
-            Operações a serem realizadas:
+            _________________________________
+            Escolha uma das opções abaixo :
             
             1- Consultar saldos
             2- Receber valor
@@ -34,24 +33,29 @@ public class ContaBancaria {
 
             switch (operacao) {
                 case 1:
-                    System.out.println("Seu saldo é "+ saldo);
-                    System.out.println("");
+                    System.out.println("-------------------------------");
+                    System.out.println("Seu saldo é R$ "+ saldo);
+                    System.out.println("-------------------------------\n");
                     break;
                 case 2:
-                    System.out.println("Qual é o valor será recebido?: ");
-                    System.out.println("");
+                    System.out.println("Qual é o valor será recebido?:");
                     valor = entrada.nextDouble();
                     saldo += valor;
                     break;
                 case 3:
-                    System.out.println("Qual valor deseja pagar?:");
-                    System.out.println("");
+                    System.out.println("Qual valor deseja pagar?: \n");
                     valor = entrada.nextDouble();
-                    saldo -= valor;
+                    if (saldo < valor) {
+                        System.out.println("Você não tem saldo disponível!");
+                    } else {
+                        saldo -= valor;
+                    }
+                    break;
+                case 4:
+                    System.out.println("Você selecionou a opção SAIR");
+                    break;
                 default:
-                    System.out.println("Você digitou uma opção inexistente!");
-                    System.out.println("");
-                    
+                    System.out.println("Você digitou uma opção inexistente! \n");
             }
         }
     }
