@@ -14,7 +14,7 @@ public class ContaBancaria {
         );
         Scanner entrada = new Scanner(System.in);
         double saldo = 2500.00;
-        Double valor = 0.00;
+        double valor = 0.00;
         int operacao = 0;
 
         while (operacao != 4){
