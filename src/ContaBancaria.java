@@ -20,7 +20,8 @@ public class ContaBancaria {
         while (operacao != 4){
             System.out.println(
             """
-            Operações
+            ---------------------------------------
+            Operações a serem realizadas:
             
             1- Consultar saldos
             2- Receber valor
@@ -34,17 +35,22 @@ public class ContaBancaria {
             switch (operacao) {
                 case 1:
                     System.out.println("Seu saldo é "+ saldo);
+                    System.out.println("");
                     break;
                 case 2:
                     System.out.println("Qual é o valor será recebido?: ");
+                    System.out.println("");
                     valor = entrada.nextDouble();
                     saldo += valor;
                     break;
                 case 3:
                     System.out.println("Qual valor deseja pagar?:");
+                    System.out.println("");
                     valor = entrada.nextDouble();
                     saldo -= valor;
-                case 4:
+                default:
+                    System.out.println("Você digitou uma opção inexistente!");
+                    System.out.println("");
                     
             }
         }
