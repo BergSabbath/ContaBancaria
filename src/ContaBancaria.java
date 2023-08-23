@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.text.DecimalFormat;
+
 public class ContaBancaria {
     public static void main(String[] args) {
         System.out.println(
@@ -15,6 +17,7 @@ public class ContaBancaria {
         double saldo = 2500.00;
         double valor;
         int operacao = 0;
+        DecimalFormat df = new DecimalFormat(" 0.00");
 
         while (operacao != 4){
             System.out.println(
@@ -34,13 +37,14 @@ public class ContaBancaria {
             switch (operacao) {
                 case 1:
                     System.out.println("-------------------------------");
-                    System.out.println("Seu saldo é R$ "+ saldo);
+                    System.out.println("Seu saldo é R$ "+ df.format(saldo));
                     System.out.println("-------------------------------\n");
                     break;
                 case 2:
                     System.out.println("Qual é o valor será recebido?:");
                     valor = entrada.nextDouble();
                     saldo += valor;
+                    System.out.println("Novo saldo disponivel: R$ " + df.format(saldo));
                     break;
                 case 3:
                     System.out.println("Qual valor deseja pagar?: \n");
@@ -49,6 +53,7 @@ public class ContaBancaria {
                         System.out.println("Você não tem saldo disponível!");
                     } else {
                         saldo -= valor;
+                        System.out.println("Novo saldo disponivel: R$ " + df.format(saldo));
                     }
                     break;
                 case 4:
